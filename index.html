@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="ru">
+        <title>Региональная статистика</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/style_main.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body ng-app="Reg_Stat">
+        <div class="container">
+            <div class="bs-component">
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <button data-target=".navbar-inverse-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand">Региональная статистика</a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-inverse-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Вход</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <form class="form-signin" ng-controller="FormLogin">
+                <input type="text" placeholder="Имя" class="input-block-level" required ng-model="login" ng-change="checkLogin()">
+                <span class="language-label" ng-if="russianLogin">Ru</span>
+                <span class="glyphicon glyphicon-warning-sign" title="Недопустимые символы" ng-if="nonLetterLogin"></span>
+                <input type="password" placeholder="Пароль" class="input-block-level" required ng-model="password" ng-change="checkPassword()">
+                <span class="language-label" ng-if="russianPassword">Ru</span>
+                <span class="glyphicon glyphicon-warning-sign" title="Недопустимые символы" ng-if="nonLetterPassword">Недопустимые символы</span>
+                <button type="submit" class="btn btn-large btn-primary" ng-click="sendLogin()">Войти</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/controllers.js"></script>
+    </body>
+</html>
